@@ -1,0 +1,63 @@
+/*
+Antares Rahman
+style.css for stock_charts.html
+*/
+
+body {
+   text-align: center;
+   background: rgba(0, 128, 0, 0.3);
+   margin: 0px auto;
+}
+
+canvas {
+    background: rgba(256, 256, 256, 0.2);
+    height: 400px;
+    width: 1000px;
+}
+
+/*title*/
+h1 {
+   color: rgba(0, 128, 0, 1);
+}
+
+/*AAPL button*/
+.AAPL {
+    color: rgba(150, 150, 150, 1);
+    background: rgba(252, 253, 255, 1);
+    font-weight: bold;
+    font-size: 200%;
+    border-radius: 10px;
+}
+
+.AAPL:hover {
+    color: rgba(150, 150, 150, 0.5);
+    background: rgba(252, 253, 255, 0.5);
+}
+
+/*AKAM button*/
+.AKAM {
+    color: rgba(254, 153, 0, 1);
+    background: rgba(25, 154, 214, 1);
+    font-weight: bold;
+    font-size: 200%;
+    border-radius: 10px;    
+}
+
+.AKAM:hover {
+    color: rgba(254, 153, 0, 0.5);
+    background: rgba(25, 154, 214, 0.5);
+}
+
+/*AMZN button*/
+.AMZN {
+    color: rgba(0, 0, 0, 1);
+    background: rgba(254, 153, 0, 1);
+    font-weight: bold;
+    font-size: 200%;
+    border-radius: 10px;
+}
+
+.AMZN:hover {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgba(254, 153, 0, 0.5);
+}

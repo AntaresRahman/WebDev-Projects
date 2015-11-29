@@ -1,0 +1,114 @@
+<!--
+Antares Rahman 6/26/15
+ImageFilters is an image filtering program/website
+It takes a user-selected input image (art or photo),
+and outputs a filtered image
+depending on what filters and filter-range the user chooses
+-->
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale = 1, user-scalable = no">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <script src="js/methods.js"></script>
+    <script src="js/rgb-hsv_converter.js"></script>
+    <title>Image Filters</title>
+  </head>
+
+
+  <body>
+    <h1>Image Filters</h1>
+    <div id="filter-holder">
+      
+<!--      filters and color-wheels panels-->
+<!--      filter 1 panel-->
+      <div class="fil-wheel" id="fil-wheel1">
+        <div class="filters" id="filter1">
+          <span>
+            <input type="checkbox" id="option1" value="filter1"> Filter 1
+          </span>
+          <input type="range" id="slider" min="0" max="1" value="0.5" step=".02" onchange='filter1 = drawBars(this.value, "myCanvas1")' />
+        </div>
+        <div class="color-wheels" id="wheel1">
+          <img src="css/wheel.png" class="wheel-img" width="150" height="150">
+          <canvas class="myCanvas" id="myCanvas1" width="150" height="150">
+            Your browser does not support the canvas element.
+          </canvas>
+        </div>
+      </div>  
+      
+<!--      filter 2 panel-->
+      <div class="fil-wheel" id="each-fil-wheel">
+        <div class="filters" id="each-filter">
+          <span>
+            <input type="checkbox" id="option2" value="filter2"> Filter 2
+          </span>
+          <input type="range" id="slider" min="0" max="1" value="0.5" step=".02" onchange='filter2 = drawBars(this.value, "myCanvas2")' />
+        </div>
+        <div class="color-wheels" id="each-wheel">
+          <img src="css/wheel.png" class="wheel-img" width="150" height="150">
+          <canvas class="myCanvas" id="myCanvas2" width="150" height="150">
+            Your browser does not support the canvas element.
+          </canvas>
+        </div>
+      </div>
+      
+<!--      filter 3 panel-->
+      <div class="fil-wheel" id="each-fil-wheel">
+        <div class="filters" id="each-filter">
+          <span>
+            <input type="checkbox" id="option3" value="filter3"> Filter 3
+          </span>
+          <input type="range" id="slider" min="0" max="1" value="0.5" step=".02" onchange='filter3 = drawBars(this.value, "myCanvas3")' />
+        </div>
+        <div class="color-wheels" id="each-wheel">
+          <img src="css/wheel.png" class="wheel-img" width="150" height="150">
+          <canvas class="myCanvas" id="myCanvas3" width="150" height="150">
+            Your browser does not support the canvas element.
+          </canvas>
+        </div>
+      </div>
+      
+<!--      filter-range panel-->
+      <div id="filter-range">
+        <span>Filter Range</span>
+        <input type="range" id="slider" min="0" max="1" value="0.5" step=".02" onchange='showValue(this.value)' />
+      </div>
+
+<!--      image source selector-->
+      <div id="img-src">
+        <p id="img-txt">Image</p>
+        <select id="img-select" onchange="selectSrcImg()">Could not retrieve images titles</select>
+        <button type="button" id="img-button" onClick="filter()">-- Filter --</button> 
+      </div>
+    </div>
+    
+<!--    image panels-->
+<!--    input/source/left image panel-->
+    <div class="img" id="src">
+        <p class="title" id="myname">Antares Rahman</p>
+        <canvas class="imgCanvas" id="srcCanvas" width="500" height="500">
+          Your browser does not support the canvas element.
+        <canvas>
+    </div>
+<!--    output/filtered/right image panel-->
+    <div class="img" id="out">
+        <p class="title" id="imgtitle">Could not retrieve image title</p>
+        <canvas class="imgCanvas" id="outCanvas" width="500" height="500">
+          Your browser does not support the canvas element.
+        <canvas>
+    </div>
+    
+<!--    initialize javascript onload-->
+    <script type="text/javascript">
+      var filter1 = drawBars(INITVAL, "myCanvas1");
+      var filter2 = drawBars(INITVAL, "myCanvas2");
+      var filter3 = drawBars(INITVAL, "myCanvas3");
+      populateImgList();
+      selectSrcImg();
+    </script>
+
+  </body>
+  
+</html>

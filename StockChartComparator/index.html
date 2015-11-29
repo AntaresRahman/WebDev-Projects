@@ -1,0 +1,212 @@
+<!--
+Antares Rahman 3/1/2015
+index.html
+Uses Chart.js by Nick Downie.
+Loads stock price and trade volume charts for selected companies.
+Allows comparison of available data from csv files.
+Example data have been retrieved from http://finance.yahoo.com.
+NOTE: Chart.js is a little buggy when it comes to removing
+the previously drawn charts.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="initial-scale = 1, user-scalable = no">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+        <script src="js/Chart.js"></script>
+        
+        <script language="javascript">
+            
+//            reads .csv file and returns lists of dates, volumes and prices
+            function readTextFile(fileName){
+                var readText; //String from file
+                var dates = [];
+                var volumes = [];
+                var prices = [];
+
+                var inFile = new XMLHttpRequest();
+                inFile.open("GET", fileName+".csv", false);  // false means synchronous
+                inFile.send();
+                readText = inFile.responseText;
+                var rows = readText.split("\n");
+                var columns;
+                for (var i=rows.length-1; i>-1; i--) {
+                    columns = rows[i].split(",");
+                    dates.push(columns[0]);
+                    volumes.push(parseInt(columns[5])/1000000);
+                    prices.push(parseFloat(columns[6]));
+                }
+                return [dates, volumes, prices];
+                
+            }
+            
+//            retrieve data from files
+            var AAPLdata = readTextFile("AAPL");
+            var AKAMdata = readTextFile("AKAM");
+            var AMZNdata = readTextFile("AMZN");
+            
+//            store date, volume, price data in indivual lists
+            var datesAAPL = AAPLdata[0];
+            var volumesAAPL = AAPLdata[1];;
+            var pricesAAPL = AAPLdata[2];;
+//            var datesAKAM = AKAMdata[0]; //redundant
+            var volumesAKAM = AKAMdata[1];;
+            var pricesAKAM = AKAMdata[2];;
+//            var datesAMZN = AMZNdata[0]; //redundant
+            var volumesAMZN = AMZNdata[1];;
+            var pricesAMZN = AMZNdata[2];;
+            
+//            pseudo-label for volume-line graph as not required
+            var emptyLabel = []
+            for (var i=0; i<53; i++) {
+                emptyLabel.push("");
+            }
+            
+//            variables to keep track of button clicks
+//            alternates between 0 and 1 on click
+            var toggleAAPL = 0;
+            var toggleAKAM = 0;
+            var toggleAMZN= 0;
+            
+//            price data of AAPL for bar
+            var datasetsAAPL = {
+                    fillColor : "rgba(150, 150, 150, 0.5)",
+                    strokeColor : "rgba(150, 150, 150, 1)",
+                    data : pricesAAPL
+            };
+
+//            volume data of AAPL for line            
+            var datasetsAAPL2 = {
+                    fillColor : "rgba(150, 150, 150, 0.5)",
+                    strokeColor : "rgba(150, 150, 150, 1)",
+                    data : volumesAAPL
+            };
+            
+//            price data of AKAM for bar            
+            var datasetsAKAM = {
+                    fillColor : "rgba(25, 154, 214, 0.5)",
+                    strokeColor : "rgba(25, 154, 214, 1)",
+                    data : pricesAKAM
+            };
+            
+//            volume data of AKAM for line            
+            var datasetsAKAM2 = {
+                    fillColor : "rgba(25, 154, 214, 0.5)",
+                    strokeColor : "rgba(25, 154, 214, 1)",                           
+                    data : volumesAKAM
+            };
+            
+//            price data of AMZN for bar            
+            var datasetsAMZN = {
+                    fillColor : "rgba(254, 153, 0, 0.5)",
+                    strokeColor : "rgba(254, 153, 0, 1)",
+                    data : pricesAMZN
+            };
+            
+//            volume data of AMZN for line            
+            var datasetsAMZN2 = {
+                    fillColor : "rgba(254, 153, 0, 0.5)",
+                    strokeColor : "rgba(254, 153, 0, 1)",
+                    data : volumesAMZN
+            };
+            
+            var datasetsBar = [];
+            var datasetsLine = [];
+            
+            var myGraph;
+            var myGraph2;
+            
+            function drawChart(filename) {
+                //if AAPL is clicked
+                if (filename == 'AAPL') {
+                    //if AAPL charts are already drawn, undraw it and update toggle
+                    if (toggleAAPL==1) {
+                        toggleAAPL--;
+                        datasetsBar.splice(datasetsBar.indexOf(datasetsAAPL), 1); 
+                        datasetsLine.splice(datasetsLine.indexOf(datasetsAAPL2), 1);
+                    }
+                    //else draw them and update toggle
+                    else {
+                        toggleAAPL++;
+                        datasetsBar.push(datasetsAAPL);
+                        datasetsLine.push(datasetsAAPL2);
+                    }
+                }
+                //if AKAM is clicked
+                else if (filename == 'AKAM') {
+                    //if AKAM charts are already drawn, undraw it and update toggle
+                    if (toggleAKAM==1) {
+                        toggleAKAM--;
+                        datasetsBar.splice(datasetsBar.indexOf(datasetsAKAM), 1);
+                        datasetsLine.splice(datasetsLine.indexOf(datasetsAKAM2), 1);
+                    }
+                    //else draw them and update toggle
+                    else {
+                        toggleAKAM++;
+                        datasetsBar.push(datasetsAKAM);
+                        datasetsLine.push(datasetsAKAM2);
+                    }
+                }
+                //if AMZN is clicked
+                else {
+                    //if AMZN charts are already drawn, undraw it and update toggle
+                    if (toggleAMZN==1) {
+                        toggleAMZN--;
+                        datasetsBar.splice(datasetsBar.indexOf(datasetsAMZN), 1);   
+                        datasetsLine.splice(datasetsLine.indexOf(datasetsAMZN2), 1);
+                    }
+                    //else draw them and update toggle
+                    else {
+                        toggleAMZN++;
+                        datasetsBar.push(datasetsAMZN);
+                        datasetsLine.push(datasetsAMZN2);
+                    }
+                }
+                
+                var barChartData = {
+                    labels : datesAAPL,
+                    datasets : datasetsBar
+                }
+                var lineChartData = {
+                    labels : emptyLabel,
+                    datasets : datasetsLine
+                }
+
+                myGraph = new Chart(document.getElementById("canvas2").getContext("2d")).Bar(barChartData);
+                myGraph2 = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+                // document.getElementById("canvas").getContext("2d")) is used to get the object to draw on
+                // Bar draws the graph onto canvas2 defined in the body using the data in barChartData
+                // Line draws the graph onto canvas defined in the body using the data in lineChartData
+            }	
+		</script>        
+	</head>
+    
+	<body>
+<!--        title-->
+        <div>
+            <h1>TECH STOCK</h1>
+        </div>
+
+<!--        Trade Volume line chart-->
+        <div>	
+            <canvas id="canvas"></canvas>
+            <h2>Trade Volume (millions)</h2>
+        </div>
+
+<!--        Price Bar chart-->
+        <div>	
+            <canvas id="canvas2"></canvas>
+            <h3>Price ($)</h3>
+        </div>
+
+<!--        buttons-->
+        <div>
+            <script>drawChart('AKAM')</script>
+            <button type="button" onclick="drawChart('AAPL')" class="AAPL">AAPL</button>
+            <button type="button" onclick="drawChart('AKAM')" class="AKAM">AKAM</button>
+            <button type="button" onclick="drawChart('AMZN')" class="AMZN">AMZN</button>
+        </div>
+    </body>
+</html>

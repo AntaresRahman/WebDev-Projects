@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--
+Images used in the program are neither
+created nor owned by me. They have been
+used only as examples/placeholders. All
+credits are due to the creators of the
+images found in the artist information
+below for each artwork. No images may be
+used for any purpose, as they may be
+subjected to copyright laws.
+-->
+<collection>
+  <image>
+    <title>Venice Grand Canal</title>
+    <artist>Leonid Afremov</artist>
+    <year>2009</year>
+    <type>painting</type>
+    <fileName>grandcanal.jpg</fileName>
+  </image>
+  <image>
+    <title>Abstract Painting Ideas</title>
+    <artist>T Hidayat</artist>
+    <year>2014</year>
+    <type>painting</type>
+    <fileName>abstract.jpg</fileName>
+  </image>
+  <image>
+    <title>Abstract Painting Ideas Tree</title>
+    <artist>T Hidayat</artist>
+    <year>2014</year>
+    <type>painting</type>
+    <fileName>abstract_tree.jpg</fileName>
+  </image>
+  <image>
+    <title>Day at the Beach</title>
+    <artist>Filomena Booth</artist>
+    <year>2013</year>
+    <type>painting</type>
+    <fileName>beachday.jpg</fileName>
+  </image> 
+  <image>
+    <title>Horse 85</title>
+    <artist>Laurie Pace</artist>
+    <year>2013</year>
+    <type>painting</type>
+    <fileName>horse.jpg</fileName>
+  </image>
+  <image>
+    <title>Horse 2</title>
+    <artist>Laurie Pace</artist>
+    <year>2013</year>
+    <type>painting</type>
+    <fileName>horse2.jpg</fileName>
+  </image>
+  <image>
+    <title>The Storm on the Sea of Galilee</title>
+    <artist>Rembrandt</artist>
+    <year>1633</year>
+    <type>painting</type>
+    <fileName>storm.jpg</fileName>
+  </image>
+</collection>

@@ -1,0 +1,14 @@
+BODY_BACKGROUND rgb(124,124,124)
+CELL_BACKGROUND1 Salmon
+CELL_BACKGROUND2 lightblue
+TABLE_BORDER_COLOR yellow
+TABLE_BORDER_PX 5
+AUTHORS Antares Rahman & Patrik Devlin
+TITLE Angry Bird BackGrounds
+IMAGES
+bg0_unedited.png bg1_unedited.png bg0_unedited.png
+bg2_unedited.png bg0_unedited.png
+bg3_unedited.png bg4_unedited.png bg0_unedited.png
+bg3_unedited.png bg4_unedited.png bg0_unedited.png
+bg2_unedited.png bg0_unedited.png
+bg2_unedited.png bg0_unedited.png

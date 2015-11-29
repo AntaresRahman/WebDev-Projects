@@ -1,0 +1,204 @@
+/*
+Antares Rahman 6/26/15
+style.css describes the styling elements for ImageFilters
+*/
+
+body {
+  background-color: #2f4f4f;
+}
+
+h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  border-radius: 1vh;
+  border-top-left-radius: 5vh;
+  border: 0.5vh solid #cc9900;
+  background: #663300;
+  padding-left: 2.5vh;
+  width: 95.125vw;
+  height: 8vh;
+  color: #cc9900;
+  font: bold 3vw calibri, sans-serif;
+}
+
+#filter-holder {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1vh;
+  border: 0.5vh solid #cc9900;
+  background: #663300;
+  padding-left: 2.5vh;
+  width: 95.125vw;
+  height: 35vh;
+}
+
+.fil-wheel {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.25vh;
+  border-radius: 1vh;
+  border: 0.375vh solid #CC6600;
+  background: #CC6600;
+  color: #cc9900;
+  font: bold 1.5vw calibri, sans-serif;
+  float: left;
+}
+
+.filters {
+  background: #663300;
+  border-radius: 1vh;
+  border: 0.375vh solid #CC6600;
+  width: 17vw;
+  height: 8vh;
+}
+
+.color-wheels {
+  background: #cc9900;
+  border-radius: 1vh;
+  border: 0.375vh solid #CC6600;
+  width: 17vw;
+  height: 23vh;
+  position:relative;
+  z-index:20;
+}
+
+#fil-wheel1 {
+  margin-left: 9.5vw;
+}
+
+#each-fil-wheel {
+  margin-left: 2vw;
+}
+
+#filter-range {
+  text-align: center;
+  margin-left: 2vw;
+  margin-top: 1.25vh;
+  background: #663300;
+  border-radius: 1vh;
+  border: 0.625vh solid #CC6600;
+  width: 17vw;
+  height: 8vh;
+  color: #cc9900;
+  font: bold 1.5vw calibri, sans-serif;
+  float: left;
+}
+
+#img-src {
+  margin-left: 2vw;
+  margin-top: 2vh;
+  background: #cc9900;
+  border-radius: 1vh;
+  border: 0.625vh solid #CC6600;
+  width: 17vw;
+  height: 20.25vh;
+  text-align: center;
+  color: white;
+  font: bold 1.5vw calibri, sans-serif;
+  float: left;
+}
+
+.img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  padding: 1vh;
+  color: white;
+  font: bold 1vw calibri, sans-serif;
+  background: black;
+  border-radius: 2vh;
+  border: 0.5vh solid #cc9900;
+/*
+  width: 40vw;
+  height: 48vh;
+*/
+  width: 500;
+  height: 500;
+  float: left;
+}
+
+#src {
+  margin-left: 9.25vw;
+}
+
+#out {
+  margin-left: 1vw;
+}
+
+#slider{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 15vw;
+/*  font: bold 1.5vw calibri, sans-serif;*/
+}
+
+.wheel-img {
+  margin-top: 0.25vh;
+  width: 22.25vh;
+  height: 22.25vh;
+  position:absolute;
+  z-index:1;
+}
+
+.myCanvas {
+  margin-top: 0.25vh;
+  width: 22.25vh;
+  height: 22.25vh;
+  position:relative;
+  z-index:2;
+}
+
+#img-txt { margin-top: 2vh; }
+
+#img-select {
+  margin-top: -2vh;
+  width: 14vw;
+  color: #663300;
+  border-radius: 1vh;
+  border: 0.625vh solid #CC6600;
+}
+
+#img-select:hover {
+  background-color: rgba(255,255,255,0.8);
+}
+
+#img-button {
+  margin-top: 2vh;
+  color: white;
+  font: bold 1.5vw calibri, sans-serif;
+  background-color: #663300;
+  border-radius: 1vh;
+  border: 0.625vh solid #CC6600;
+}
+
+#img-button:hover { 
+  background-color: rgba(102,51,0,0.7);
+}
+
+#source {
+  border-radius: 2vh;
+}
+
+.imgCanvas {
+  border-radius: 2vh;
+  color: white;
+  font: bold 1vw calibri, sans-serif;
+/*
+  width: 40vw;
+  height: 48vh;
+*/
+  position:relative;
+  z-index:1;
+}
+
+.title {
+  color: white;
+  position:absolute;
+  z-index:10;
+  font: bold 2vw vladimir script;
+}
